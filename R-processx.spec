@@ -4,15 +4,15 @@
 #
 Name     : R-processx
 Version  : 3.2.0
-Release  : 12
+Release  : 13
 URL      : https://cran.r-project.org/src/contrib/processx_3.2.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/processx_3.2.0.tar.gz
 Summary  : Execute and Control System Processes
 Group    : Development/Tools
 License  : MIT
-Requires: R-processx-lib
-Requires: R-callr
-Requires: R-ps
+Requires: R-processx-lib = %{version}-%{release}
+Requires: R-assertthat
+BuildRequires : R-assertthat
 BuildRequires : R-callr
 BuildRequires : R-ps
 BuildRequires : buildreq-R
@@ -41,11 +41,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1534431675
+export SOURCE_DATE_EPOCH=1538582253
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1534431675
+export SOURCE_DATE_EPOCH=1538582253
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "

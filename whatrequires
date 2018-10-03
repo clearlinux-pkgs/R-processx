@@ -1,7 +1,2 @@
 # This file contains recursive sources that require this package
-R-bipartite
-R-compositions
-R-manipulateWidget
-R-rgl
-R-sna
-R-webshot
+R-callr
