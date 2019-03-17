@@ -1,4 +1,6 @@
 3.3.0
 R-assertthat
 R-callr
+R-cli
 R-ps
+R-withr

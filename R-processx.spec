@@ -4,17 +4,20 @@
 #
 Name     : R-processx
 Version  : 3.3.0
-Release  : 18
+Release  : 19
 URL      : https://cran.r-project.org/src/contrib/processx_3.3.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/processx_3.3.0.tar.gz
 Summary  : Execute and Control System Processes
 Group    : Development/Tools
 License  : MIT
 Requires: R-processx-lib = %{version}-%{release}
-Requires: R-callr
-Requires: R-ps
+Requires: R-cli
+Requires: R-withr
+BuildRequires : R-assertthat
 BuildRequires : R-callr
+BuildRequires : R-cli
 BuildRequires : R-ps
+BuildRequires : R-withr
 BuildRequires : buildreq-R
 
 %description
@@ -43,10 +46,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552261799
+export SOURCE_DATE_EPOCH=1552842615
 
 %install
-export SOURCE_DATE_EPOCH=1552261799
+export SOURCE_DATE_EPOCH=1552842615
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -82,8 +85,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library processx|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  processx || :
 
 
 %files
@@ -112,10 +114,34 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/processx/help/processx.rdx
 /usr/lib64/R/library/processx/html/00Index.html
 /usr/lib64/R/library/processx/html/R.css
-/usr/lib64/R/library/processx/libs/symbols.rds
+/usr/lib64/R/library/processx/tests/testthat.R
+/usr/lib64/R/library/processx/tests/testthat/fixtures/simple.txt
+/usr/lib64/R/library/processx/tests/testthat/helper.R
+/usr/lib64/R/library/processx/tests/testthat/test-assertions.R
+/usr/lib64/R/library/processx/tests/testthat/test-chr-io.R
+/usr/lib64/R/library/processx/tests/testthat/test-cleanup.R
+/usr/lib64/R/library/processx/tests/testthat/test-connections.R
+/usr/lib64/R/library/processx/tests/testthat/test-env.R
+/usr/lib64/R/library/processx/tests/testthat/test-extra-connections.R
+/usr/lib64/R/library/processx/tests/testthat/test-io.R
+/usr/lib64/R/library/processx/tests/testthat/test-kill-tree.R
+/usr/lib64/R/library/processx/tests/testthat/test-poll-connections.R
+/usr/lib64/R/library/processx/tests/testthat/test-poll-stress.R
+/usr/lib64/R/library/processx/tests/testthat/test-poll.R
+/usr/lib64/R/library/processx/tests/testthat/test-poll2.R
+/usr/lib64/R/library/processx/tests/testthat/test-poll3.R
+/usr/lib64/R/library/processx/tests/testthat/test-print.R
+/usr/lib64/R/library/processx/tests/testthat/test-process.R
+/usr/lib64/R/library/processx/tests/testthat/test-ps-methods.R
+/usr/lib64/R/library/processx/tests/testthat/test-run.R
+/usr/lib64/R/library/processx/tests/testthat/test-set-std.R
+/usr/lib64/R/library/processx/tests/testthat/test-sigchld.R
+/usr/lib64/R/library/processx/tests/testthat/test-stdin.R
+/usr/lib64/R/library/processx/tests/testthat/test-stress.R
+/usr/lib64/R/library/processx/tests/testthat/test-utils.R
+/usr/lib64/R/library/processx/tests/testthat/test-wait.R
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/processx/libs/processx.so
 /usr/lib64/R/library/processx/libs/processx.so.avx2
-/usr/lib64/R/library/processx/libs/processx.so.avx512
