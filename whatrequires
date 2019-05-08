@@ -1,5 +1,7 @@
 # This file contains recursive sources that require this package
 R-callr
+R-rcmdcheck
+R-shinystan
 R-tensorflow
 R-xopen
 R-zip
