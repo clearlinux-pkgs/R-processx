@@ -1,8 +1,10 @@
 # This file contains recursive sources that require this package
 R-brms
 R-callr
+R-pkgbuild
+R-pkgdown
 R-rcmdcheck
+R-rhub
 R-shinystan
 R-tensorflow
 R-xopen
-R-zip
