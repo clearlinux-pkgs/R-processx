@@ -4,7 +4,7 @@
 #
 Name     : R-processx
 Version  : 3.4.1
-Release  : 28
+Release  : 29
 URL      : https://cran.r-project.org/src/contrib/processx_3.4.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/processx_3.4.1.tar.gz
 Summary  : Execute and Control System Processes
@@ -12,20 +12,24 @@ Group    : Development/Tools
 License  : MIT
 Requires: R-processx-lib = %{version}-%{release}
 Requires: R-R6
-Requires: R-callr
+Requires: R-curl
 Requires: R-ps
 BuildRequires : R-R6
 BuildRequires : R-callr
+BuildRequires : R-curl
 BuildRequires : R-ps
 BuildRequires : buildreq-R
+BuildRequires : util-linux
 
 %description
-It can check if a background process is running; wait on a background
-    process to finish; get the exit status of finished processes; kill
-    background processes. It can read the standard output and error of
-    the processes, using non-blocking connections. 'processx' can poll
-    a process for standard output or error, with a timeout. It can also
-    poll several processes at once.
+# processx
+> Execute and Control System Processes
+[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://tidyverse.org/lifecycle/#maturing)
+[![Linux Build Status](https://travis-ci.org/r-lib/processx.svg?branch=master)](https://travis-ci.org/r-lib/processx)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/15sfg3l9mm4aseyf/branch/master?svg=true)](https://ci.appveyor.com/project/gaborcsardi/processx)
+[![](https://www.r-pkg.org/badges/version/processx)](https://www.r-pkg.org/pkg/processx)
+[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/processx)](https://www.r-pkg.org/pkg/processx)
+[![Coverage Status](https://img.shields.io/codecov/c/github/r-lib/processx/master.svg)](https://codecov.io/github/r-lib/processx?branch=master)
 
 %package lib
 Summary: lib components for the R-processx package.
@@ -43,10 +47,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1563472497
+export SOURCE_DATE_EPOCH=1571878209
 
 %install
-export SOURCE_DATE_EPOCH=1563472497
+export SOURCE_DATE_EPOCH=1571878209
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
