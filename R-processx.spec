@@ -4,7 +4,7 @@
 #
 Name     : R-processx
 Version  : 3.4.2
-Release  : 34
+Release  : 35
 URL      : https://cran.r-project.org/src/contrib/processx_3.4.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/processx_3.4.2.tar.gz
 Summary  : Execute and Control System Processes
@@ -42,10 +42,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1589744308
+export SOURCE_DATE_EPOCH=1589747134
 
 %install
-export SOURCE_DATE_EPOCH=1589744308
+export SOURCE_DATE_EPOCH=1589747134
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
