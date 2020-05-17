@@ -4,7 +4,7 @@
 #
 Name     : R-processx
 Version  : 3.4.2
-Release  : 33
+Release  : 34
 URL      : https://cran.r-project.org/src/contrib/processx_3.4.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/processx_3.4.2.tar.gz
 Summary  : Execute and Control System Processes
@@ -18,16 +18,12 @@ BuildRequires : R-ps
 BuildRequires : buildreq-R
 
 %description
-# processx
-> Execute and Control System Processes
-<!-- badges: start -->
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://tidyverse.org/lifecycle/#maturing)
-[![Linux Build Status](https://travis-ci.org/r-lib/processx.svg?branch=master)](https://travis-ci.org/r-lib/processx)
-[![Windows Build status](https://ci.appveyor.com/api/projects/status/15sfg3l9mm4aseyf/branch/master?svg=true)](https://ci.appveyor.com/project/gaborcsardi/processx)
-[![](https://www.r-pkg.org/badges/version/processx)](https://www.r-pkg.org/pkg/processx)
-[![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/processx)](https://www.r-pkg.org/pkg/processx)
-[![Coverage Status](https://img.shields.io/codecov/c/github/r-lib/processx/master.svg)](https://codecov.io/github/r-lib/processx?branch=master)
-<!-- badges: end -->
+It can check if a background process is running; wait on a background
+    process to finish; get the exit status of finished processes; kill
+    background processes. It can read the standard output and error of
+    the processes, using non-blocking connections. 'processx' can poll
+    a process for standard output or error, with a timeout. It can also
+    poll several processes at once.
 
 %package lib
 Summary: lib components for the R-processx package.
@@ -39,21 +35,22 @@ lib components for the R-processx package.
 
 %prep
 %setup -q -c -n processx
+cd %{_builddir}/processx
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581286094
+export SOURCE_DATE_EPOCH=1589744308
 
 %install
-export SOURCE_DATE_EPOCH=1581286094
+export SOURCE_DATE_EPOCH=1589744308
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -150,3 +147,4 @@ R CMD check --no-manual --no-examples --no-codoc processx || :
 /usr/lib64/R/library/processx/libs/client.so
 /usr/lib64/R/library/processx/libs/processx.so
 /usr/lib64/R/library/processx/libs/processx.so.avx2
+/usr/lib64/R/library/processx/libs/processx.so.avx512
