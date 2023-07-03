@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-processx
-Version  : 3.8.1
-Release  : 68
-URL      : https://cran.r-project.org/src/contrib/processx_3.8.1.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/processx_3.8.1.tar.gz
+Version  : 3.8.2
+Release  : 69
+URL      : https://cran.r-project.org/src/contrib/processx_3.8.2.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/processx_3.8.2.tar.gz
 Summary  : Execute and Control System Processes
 Group    : Development/Tools
 License  : MIT
@@ -16,7 +16,6 @@ Requires: R-R6
 Requires: R-ps
 BuildRequires : R-R6
 BuildRequires : R-ps
-BuildRequires : R-webfakes
 BuildRequires : buildreq-R
 # Suppress stripping binaries
 %define __strip /bin/true
@@ -40,16 +39,19 @@ lib components for the R-processx package.
 
 %prep
 %setup -q -n processx
+pushd ..
+cp -a processx buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1681834033
+export SOURCE_DATE_EPOCH=1688416022
 
 %install
-export SOURCE_DATE_EPOCH=1681834033
+export SOURCE_DATE_EPOCH=1688416022
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -87,6 +89,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc . || :
 
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
