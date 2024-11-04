@@ -7,7 +7,7 @@
 #
 Name     : R-processx
 Version  : 3.8.4
-Release  : 73
+Release  : 74
 URL      : https://cran.r-project.org/src/contrib/processx_3.8.4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/processx_3.8.4.tar.gz
 Summary  : Execute and Control System Processes
