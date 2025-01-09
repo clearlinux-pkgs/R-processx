@@ -1,6 +1,7 @@
 # This file contains recursive sources that require this package
 R-callr
 R-pkgbuild
+R-pkgload
 R-rhub
 R-tensorflow
 R-testthat
